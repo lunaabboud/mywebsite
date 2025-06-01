@@ -173,34 +173,18 @@
             flex: 0 0 auto;
         }
 
-        .image-placeholder {
+        .hero-image img {
             width: 280px;
             height: 350px;
             background: var(--white);
             border: 3px solid var(--primary-color);
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
             transition: transform 0.3s ease;
             animation: fadeInUp 1s ease 0.5s both;
         }
 
-        .image-placeholder:hover {
+        .hero-image img:hover {
             transform: scale(1.02);
-        }
-
-        .image-placeholder i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .image-placeholder p {
-            font-size: 1.1rem;
-            font-weight: 500;
         }
 
         .hero-text {
@@ -873,7 +857,7 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .image-placeholder {
+            .hero-image img {
                 width: 200px;
                 height: 250px;
                 margin: 0 auto;
@@ -928,11 +912,9 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-             <div class="hero-image">
-                 <img src="images/lina-photo.jpg" alt="Lina Abboud">
-             </div>
-               
-          </div>
+            <div class="hero-image">
+                <img src="Image/lina-photo.png" alt="Lina Abboud">
+            </div>
             <div class="hero-text">
                 <h1>Lina Abboud</h1>
                 <p class="tagline">ICT Engineering Student specializing in Telecommunications | Passionate about Cybersecurity, Networking, and Cloud Computing</p>
