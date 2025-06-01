@@ -429,3 +429,1289 @@
             </div>
         </div>
     </section>
+<!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Me</h2>
+            <div class="about-content animate-on-scroll">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user"></i>
+                        <p>Your Photo Here</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects.</p>
+                    <p>With a strong foundation in both theoretical knowledge and practical application, I'm passionate about leveraging technology to solve complex problems and drive innovation in the telecommunications and cybersecurity domains.</p>
+                    <a href="#" class="download-cv">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Education</h2>
+            <div class="education-timeline animate-on-scroll">
+                <div class="education-item stagger-animation">
+                    <h3>National Engineering School of Tunis (ENIT)</h3>
+                    <div class="degree">ICT Engineering Student</div>
+                    <p>Relevant coursework: Network Protocols and Security, Cloud Computing Fundamentals</p>
+                </div>
+                <div class="education-item stagger-animation">
+                    <h3>Higher School of Science and Technology of Hammam Sousse</h3>
+                    <div class="degree">Preparatory Diploma</div>
+                    <p>Specialized preparation for engineering studies with focus on mathematics and physics</p>
+                </div>
+                <div class="education-item stagger-animation">
+                    <h3>Mahmoud El Messadi Secondary School</h3>
+                    <div class="degree">Baccalaureate</div>
+                    <p>Completed secondary education with distinction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Certifications</h2>
+            <div class="certifications-grid animate-on-scroll">
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Cisco Certified Network Associate (CCNA)</h3>
+                    <p>Comprehensive networking certification covering routing, switching, and network security</p>
+                    <a href="https://www.netacad.com/certificates?issuanceId=b9eb96d5-feb1-48a5-bf6c-555da82a27c0" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Certified Network Security Practitioner</h3>
+                    <p>The SecOps Group - Advanced network security practices and threat detection</p>
+                    <a href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXX0anigtNK9XgZE2KIqrrsVhjEj8Gaq6y7A2WTLPW3G3ut5R/VU4ectFA277VSg3Zlf0Rikkkp9ZOO4+43/Qh0Q=" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-cloud"></i>
+                    <h3>AWS Concepts</h3>
+                    <p>DataCamp - Foundation in Amazon Web Services and cloud computing principles</p>
+                    <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/acbdb0194075194141117e8ddb9185c7ba9590cc" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-cube"></i>
+                    <h3>Containerization & Virtualization</h3>
+                    <p>DataCamp - Docker, Kubernetes, and modern deployment strategies</p>
+                    <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/3560cd5c845ffca749f659e55d93bd71f2555854" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-lock"></i>
+                    <h3>Introduction to Cybersecurity</h3>
+                    <p>Cisco - Fundamentals of cybersecurity and threat landscape</p>
+                    <a href="https://www.credly.com/badges/b0a6baf7-eaed-4b71-98e4-8ee604b1ca52" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+                <div class="cert-card stagger-animation">
+                    <i class="fas fa-business-time"></i>
+                    <h3>Cyber Security for SMBs</h3>
+                    <p>EC-Council - Specialized cybersecurity for small and medium businesses</p>
+                    <a href="https://codered.eccouncil.org/certificate/514744a0-75ca-48e8-8c9a-92ae46207616?logged=true" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<style>
+/* About Section Styles */
+.about-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    animation: fadeInLeft 1s ease;
+}
+
+.image-placeholder {
+    width: 280px;
+    height: 350px;
+    background: var(--white);
+    border: 3px solid var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.1),
+        transparent
+    );
+    transition: left 0.8s;
+}
+
+.image-placeholder:hover::before {
+    left: 100%;
+}
+
+.image-placeholder:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+.image-placeholder p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.about-text {
+    animation: fadeInRight 1s ease;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    animation: fadeInUp 1s ease;
+}
+
+.download-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.download-cv:hover::before {
+    left: 100%;
+}
+
+.download-cv:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Education Section Enhanced */
+.education-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    animation: slideInFromTop 1s ease;
+}
+
+.education-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: translateX(0);
+}
+
+.education-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 30px;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 3px var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.education-item:hover::before {
+    transform: scale(1.3);
+    background: var(--accent-color);
+}
+
+.education-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.education-item .degree {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+/* Certifications Enhanced */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.cert-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover::before {
+    transform: scaleX(1);
+}
+
+.cert-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+}
+
+.cert-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cert-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--accent-color);
+}
+
+.cert-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.cert-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.cert-link:hover::before {
+    left: 100%;
+}
+
+.cert-link:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cert-link i {
+    font-size: 0.9rem;
+    color: var(--white);
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .image-placeholder {
+        width: 200px;
+        height: 250px;
+        margin: 0 auto;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-item {
+        margin-left: -1rem;
+    }
+}
+
+/* Additional smooth scrolling animations */
+.fade-in-up {
+    animation: fadeInUp 1s ease;
+}
+
+.section.animate-in {
+    animation: fadeInUp 0.8s ease;
+}
+</style>
+<!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Projects</h2>
+            <div class="projects-grid animate-on-scroll">
+                <div class="project-card stagger-animation">
+                    <div class="project-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Network Security Implementation</h3>
+                        <p>Designed and implemented a comprehensive network security solution using Cisco equipment and security protocols.</p>
+                        <div class="project-tech">
+                            <span>Cisco</span>
+                            <span>Security</span>
+                            <span>Networking</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Details
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card stagger-animation">
+                    <div class="project-image">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cloud Infrastructure Setup</h3>
+                        <p>Built and deployed scalable cloud infrastructure using AWS services with containerization technologies.</p>
+                        <div class="project-tech">
+                            <span>AWS</span>
+                            <span>Docker</span>
+                            <span>Kubernetes</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Details
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card stagger-animation">
+                    <div class="project-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cybersecurity Assessment Tool</h3>
+                        <p>Developed a comprehensive cybersecurity assessment tool for small and medium businesses.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Security</span>
+                            <span>Analysis</span>
+                        </div>
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Technical Skills</h2>
+            <div class="skills-container animate-on-scroll">
+                <div class="skills-category stagger-animation">
+                    <h3><i class="fas fa-network-wired"></i> Networking & Security</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span>CCNA Routing & Switching</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Network Security</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Cybersecurity</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category stagger-animation">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span>AWS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Kubernetes</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category stagger-animation">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience/Positions Section -->
+    <section id="positions" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Experience & Positions</h2>
+            <div class="experience-timeline animate-on-scroll">
+                <div class="experience-item stagger-animation">
+                    <div class="experience-date">2024 - Present</div>
+                    <div class="experience-content">
+                        <h3>Network Security Intern</h3>
+                        <h4>Tech Solutions Company</h4>
+                        <p>Implemented network security protocols and conducted vulnerability assessments for enterprise clients.</p>
+                        <ul>
+                            <li>Configured firewall rules and security policies</li>
+                            <li>Performed network penetration testing</li>
+                            <li>Documented security procedures and best practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item stagger-animation">
+                    <div class="experience-date">2023 - 2024</div>
+                    <div class="experience-content">
+                        <h3>IT Support Assistant</h3>
+                        <h4>ENIT IT Department</h4>
+                        <p>Provided technical support and maintained network infrastructure for the university campus.</p>
+                        <ul>
+                            <li>Troubleshot network connectivity issues</li>
+                            <li>Assisted in server maintenance and updates</li>
+                            <li>Supported students and faculty with technical problems</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item stagger-animation">
+                    <div class="experience-date">2023</div>
+                    <div class="experience-content">
+                        <h3>Cybersecurity Workshop Leader</h3>
+                        <h4>Student Technology Club</h4>
+                        <p>Organized and led cybersecurity awareness workshops for fellow students.</p>
+                        <ul>
+                            <li>Delivered presentations on cybersecurity best practices</li>
+                            <li>Conducted hands-on security training sessions</li>
+                            <li>Mentored junior students in security concepts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+            <div class="contact-content animate-on-scroll">
+                <div class="contact-info">
+                    <div class="contact-item stagger-animation">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>lina.abboud@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item stagger-animation">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+216 XX XXX XXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item stagger-animation">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Tunis, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item stagger-animation">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/lina-abboud</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form class="form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Lina Abboud</h3>
+                    <p>ICT Engineering Student specializing in Telecommunications</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> lina.abboud@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lina Abboud. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<style>
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    background: var(--gradient);
+    color: var(--white);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.8s;
+}
+
+.project-card:hover .project-image::before {
+    left: 100%;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.project-content p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-tech span {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.skills-category {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.skills-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skills-category h3 i {
+    font-size: 1.5rem;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-item span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.skill-bar {
+    background: var(--bg-light);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 10px;
+    width: 0;
+    transition: width 2s ease;
+    position: relative;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3));
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Experience Section */
+.experience-timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+}
+
+.experience-item {
+    position: relative;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem;
+    top: 0.5rem;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.experience-date {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 0.8rem 1.2rem;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.experience-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.experience-content:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.experience-content h4 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.experience-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.experience-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.experience-content ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    min-width: 50px;
+}
+
+.contact-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--bg-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--bg-light);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--white);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-grid,
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .experience-timeline {
+        padding-left: 1rem;
+    }
+    
+    .experience-timeline::before {
+        left: 0;
+    }
+    
+    .experience-item::before {
+        left: -0.6rem;
+    }
+}
+</style>
+
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Animate elements on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            
+            // Animate skill bars
+            if (entry.target.classList.contains('skills-container')) {
+                animateSkillBars();
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe all animate-on-scroll elements
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+});
+
+// Animate skill bars
+function animateSkillBars() {
+    document.querySelectorAll('.skill-progress').forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 500);
+    });
+}
+
+// Mobile menu toggle
+const mobileMenu = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenu.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    this.classList.toggle('active');
+});
+
+// Form submission
+document.querySelector('.form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Animate button
+    const button = this.querySelector('button');
+    const originalText = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    button.disabled = true;
+    
+    // Simulate sending
+    setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        button.style.background = '#28a745';
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.disabled = false;
+            button.style.background = '';
+            this.reset();
+        }, 2000);
+    }, 2000);
+});
+
+// Add typing effect to hero title
+window.addEventListener('load', function() {
+    const title = document.querySelector('.hero h1');
+    title.style.width = 'auto';
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', function() {
+    const hero = document.querySelector('.hero');
+    const scrolled = window.pageYOffset;
+    const parallax = scrolled * 0.5;
+    
+    if (hero) {
+        hero.style.transform = `translateY(${parallax}px)`;
+    }
+});
+</script>
+
+</body>
+</html>
