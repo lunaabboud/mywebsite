@@ -24,7 +24,7 @@
             --white: #ffffff;
             --gradient: linear-gradient(135deg, #000000, #333333);
             --hover-gradient: linear-gradient(135deg, #333333, #666666);
-            --main-accent-color: #00CED1;
+            --main-accent-color: #00CED1; /* A teal color for accents */
         }
 
         body {
@@ -33,7 +33,7 @@
             color: var(--text-dark);
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background-color: #0a0a0a;
+            background-color: #0a0a0a; /* Main body background, overridden by sections */
         }
 
         /* Keyframe Animations */
@@ -223,16 +223,16 @@
             }
         }
 
-        /* Hero Section - Combined Home & About */
+        /* Hero Section - Home Page */
         .hero {
-            background: #0a0a0a;
+            background: #0a0a0a; /* Keep home page dark */
             color: var(--white);
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 5rem;
+            padding-top: 5rem; /* Space for fixed navigation */
         }
 
         .hero-content {
@@ -240,7 +240,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 1fr 400px; /* Two columns: text and image */
             gap: 4rem;
             align-items: center;
             position: relative;
@@ -249,13 +249,13 @@
 
         @media (max-width: 968px) {
             .hero-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column on smaller screens */
                 text-align: center;
                 gap: 2rem;
             }
             
             .hero-image {
-                order: -1;
+                order: -1; /* Move image above text on mobile */
             }
         }
 
@@ -264,14 +264,15 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
             margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .hero h1 .intro-text {
             font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--white);
+            color: #cccccc; /* Lighter shade for intro text */
             font-weight: 400;
         }
 
@@ -293,15 +294,19 @@
             color: #999999;
             margin-bottom: 2rem;
             max-width: 500px;
+            margin-left: auto; /* Center on mobile */
+            margin-right: auto; /* Center on mobile */
         }
 
-        .social-links {
+        /* Social Links within Hero */
+        .hero .social-links { /* Target specifically social links in hero */
             display: flex;
+            justify-content: center; /* Center on mobile */
             gap: 1rem;
             margin-bottom: 2rem;
         }
 
-        .social-link {
+        .hero .social-link { /* Target specifically social links in hero */
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -311,20 +316,23 @@
             justify-content: center;
             color: var(--white);
             text-decoration: none;
+            font-size: 1.5rem; /* Icon size */
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
 
-        .social-link:hover {
+        .hero .social-link:hover {
             background: var(--main-accent-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0, 206, 209, 0.4);
         }
 
-        .cta-buttons {
+        /* CTA Buttons within Hero */
+        .hero .cta-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center; /* Center on mobile */
         }
 
         .btn {
@@ -341,6 +349,7 @@
             position: relative;
             overflow: hidden;
             font-size: 1rem;
+            z-index: 1; /* Ensure text is above ::before */
         }
 
         .btn::before {
@@ -357,6 +366,7 @@
                 transparent
             );
             transition: left 0.5s;
+            z-index: -1; /* Place behind button text */
         }
 
         .btn:hover::before {
@@ -427,6 +437,7 @@
             border-radius: 50%;
             background: rgba(0, 206, 209, 0.1);
             animation: float 6s ease-in-out infinite;
+            z-index: 1; /* Ensure floating elements are behind content */
         }
 
         .floating-element:nth-child(1) {
@@ -453,14 +464,11 @@
             animation-delay: 4s;
         }
 
-        /* Section Styles */
+        /* Section Styles (All sections except hero will have white background) */
         .section {
             padding: 5rem 0;
             position: relative;
-        }
-
-        .section:nth-child(even) {
-            background: var(--bg-light);
+            background-color: var(--white); /* All sections will be white by default */
         }
 
         .container {
@@ -519,347 +527,284 @@
         .stagger-animation:nth-child(9) { animation-delay: 0.9s; }
         .stagger-animation:nth-child(10) { animation-delay: 1.0s; }
 
-        /* Education Section Enhanced */
-        .education-timeline {
-            position: relative;
-            padding-left: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
         }
 
-        .education-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-            border-radius: 10px;
-            animation: slideInFromTop 1s ease;
-        }
-
-        .education-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease, box-shadow 0.3s ease;
-            transform: translateX(0);
-            border-left: 5px solid transparent;
-        }
-
-        .education-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4);
-            border-left-color: var(--primary-color);
-        }
-
-        .education-item::before {
-            content: '';
-            position: absolute;
-            left: -27px;
-            top: 30px;
-            width: 15px;
-            height: 15px;
-            background: var(--primary-color);
+        .about-image img {
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 3px var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .education-item:hover::before {
-            transform: scale(1.3);
-            background: var(--accent-color);
-        }
-
-        .education-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .education-item .degree {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-
-        /* Certifications Enhanced */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .cert-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease, box-shadow 0.3s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-        }
-
-        .cert-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .cert-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 206, 209, 0.4);
-            border-color: var(--primary-color);
-        }
-
-        .cert-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover i {
-            color: var(--accent-color);
-            transform: rotateY(180deg);
-        }
-
-        .cert-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .cert-link:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: all 0.4s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 25px var(--main-accent-color);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--accent-color);
         }
 
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-info p {
+        .about-text {
+            max-width: 800px;
+            text-align: left;
+            line-height: 1.8;
             color: var(--text-light);
-            margin-bottom: 1rem;
         }
 
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
+        .about-text p {
+            margin-bottom: 20px;
         }
 
         /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .skill-card {
+        .skill-item {
             background: var(--white);
-            padding: 1.5rem;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            transition: all 0.3s ease, box-shadow 0.3s ease;
+            min-height: 180px;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 206, 209, 0.4);
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .skill-card i {
-            font-size: 2.5rem;
-            color: var(--main-accent-color);
-            margin-bottom: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover i {
-            transform: scale(1.1);
-        }
-
-        .skill-card h3 {
-            font-size: 1.1rem;
-            color: var(--main-accent-color);
-        }
-
-        /* Experience/Positions Section */
-        .positions-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .position-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            transition: all 0.3s ease, box-shadow 0.3s ease;
-            border-right: 5px solid transparent;
-        }
-
-        .position-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4);
-            border-right-color: var(--primary-color);
-        }
-
-        .position-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .position-item .role {
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .position-item .duration {
-            font-style: italic;
+        .skill-item i {
+            font-size: 3rem;
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
 
-        .position-item ul {
-            list-style: disc;
-            margin-left: 1.5rem;
+        .skill-item h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            font-size: 0.9rem;
             color: var(--text-light);
         }
 
-        .position-item ul li {
-            margin-bottom: 0.5rem;
+
+        /* Education & Experience Sections */
+        .education-timeline, .experience-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .education-timeline::before, .experience-timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .education-item, .experience-item {
+            padding: 20px 30px;
+            position: relative;
+            background-color: var(--white); /* Ensure education items are white */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            width: calc(50% - 30px);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-item:nth-child(even), .experience-item:nth-child(even) {
+            margin-left: calc(50% + 30px);
+        }
+
+        .education-item:nth-child(odd), .experience-item:nth-child(odd) {
+            margin-right: calc(50% + 30px);
+        }
+
+        .education-item::after, .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--white);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .education-item:nth-child(odd)::after, .experience-item:nth-child(odd)::after {
+            right: -42px;
+        }
+
+        .education-item:nth-child(even)::after, .experience-item:nth-child(even)::after {
+            left: -42px;
+        }
+
+        .education-item h3, .experience-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .education-item p, .experience-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .education-item span, .experience-item span {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .project-links a {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-color);
         }
 
         /* Contact Section */
         .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--accent-color);
         }
 
         .contact-form {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-            animation: fadeInUp 1s ease 0.5s both;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
         }
 
         .contact-form .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
+            margin-bottom: 20px;
         }
 
         .contact-form label {
             display: block;
+            margin-bottom: 8px;
             font-weight: 600;
-            margin-bottom: 0.5rem;
             color: var(--primary-color);
         }
 
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
+        .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
         }
 
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
+        .contact-form input:focus,
         .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
             outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(102, 102, 102, 0.2);
         }
 
         .contact-form textarea {
@@ -868,367 +813,441 @@
         }
 
         .contact-form button {
-            background: var(--primary-color);
+            background: var(--accent-color);
             color: var(--white);
-            padding: 1rem 2.5rem;
+            padding: 14px 25px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .contact-form button:hover {
-            background: var(--main-accent-color);
-            color: var(--white);
+            background: var(--hover-gradient);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 206, 209, 0.2);
         }
 
-        .contact-social-links {
-            margin-top: 2rem;
-        }
-
-        .contact-social-links a {
-            color: var(--main-accent-color);
-            font-size: 2rem;
-            margin: 0 1rem;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .contact-social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-            color: var(--primary-color);
+        .contact-form button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
+            background-color: var(--primary-color);
             color: var(--white);
             text-align: center;
-            padding: 2rem 0;
+            padding: 30px 20px;
             font-size: 0.9rem;
-            animation: fadeInUp 1s ease;
+            margin-top: 50px;
+        }
+
+        /* Generic social links - applies to both hero and footer */
+        .social-links {
+            display: flex; /* Ensures flexbox properties */
+            gap: 1rem; /* Space between links */
+            justify-content: center; /* Centers links */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--white); /* Default color for footer */
+            font-size: 1.5rem;
+            margin: 0; /* Reset margin from previous rule */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%; /* Move nav below header for mobile */
+                left: 0;
+                width: 100%;
+                height: auto; /* Adjust height for content */
+                background: rgba(10, 10, 10, 0.98); /* Ensure dark background for mobile menu */
+                flex-direction: column;
+                justify-content: flex-start; /* Align items to start */
+                align-items: center;
+                display: none; /* Hidden by default */
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                padding-bottom: 1rem; /* Add padding at the bottom for better spacing */
+            }
+
+            nav.active {
+                transform: translateX(0);
+                display: flex; /* Show when active */
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 15px 0; /* Adjust margin for mobile links */
+            }
+
+            nav ul li a {
+                font-size: 1.5rem; /* Adjust font size for mobile links */
+                padding: 10px 0;
+                display: block;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .mobile-menu.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-menu.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero {
+                padding-top: 100px;
+                height: auto; /* Adjust height for smaller screens */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                white-space: normal; /* Allow text to wrap on small screens */
+                width: auto; /* Remove width constraint for typing effect on mobile */
+                border-right: none; /* Remove blinking cursor for responsiveness */
+                animation: none; /* Disable typing animation on small screens */
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                opacity: 1; /* Always visible on mobile */
+                animation: none; /* Disable fade in animation on small screens */
+            }
+
+            .section {
+                padding: 60px 15px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .education-item, .experience-item {
+                width: 100%;
+                margin: 0 0 30px 0;
+            }
+
+            .education-timeline::before, .experience-timeline::before {
+                left: 20px; /* Align timeline to left */
+                margin-left: 0;
+            }
+
+            .education-item:nth-child(odd)::after, .experience-item:nth-child(odd)::after {
+                left: 10px; /* Align dot to left */
+                right: auto;
+            }
+
+            .education-item:nth-child(even), .experience-item:nth-child(even) {
+                margin-left: 0; /* Remove left margin for even items */
+            }
+
+            .education-item:nth-child(even)::after, .experience-item:nth-child(even)::after {
+                left: 10px; /* Align dot to left */
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Lina <span class="accent-text">Abboud</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#positions">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+    <header>
+        <div class="container nav-container"> <!-- Added nav-container for consistency -->
+            <h1 class="logo"><a href="#home">Lina <span class="accent-text">Abboud</span></a></h1> <!-- Updated logo structure -->
+            <nav id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>
-                    <span class="intro-text">Hi, It's</span><br>
-                    <span class="name">Lina Abboud</span>
-                </h1>
-                <p class="role">I'm an ICT Engineering Student</p>
-                <p class="description">
-                    I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects and drive innovation in cybersecurity and networking domains.
-                </p>
-                
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/lina-aboud" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/lunaabboud" target="_blank" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:lina.abboud.ing@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>Hire Me</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#projects" class="btn btn-outline">
-                        <span>View My Work</span>
-                        <i class="fas fa-eye"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-circle">
-                    <!-- Placeholder for profile image; user can add their own -->
-                    <img src="https://via.placeholder.com/320" alt="Lina Abboud" class="profile-image">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Education</h2>
-            <div class="education-timeline animate-on-scroll">
-                <div class="education-item stagger-animation">
-                    <h3>National Engineering School of Tunis (ENIT)</h3>
-                    <div class="degree">ICT Engineering (AI & Data Science)</div>
-                    <p>Relevant coursework: Machine Learning, Database Systems</p>
-                    <div class="duration">Sep 2023 - Present</div>
-                </div>
-                <div class="education-item stagger-animation">
-                    <h3>Higher School of Science and Technology of Hammam Sousse</h3>
-                    <div class="degree">Preparatory Diploma in Engineering</div>
-                    <p>Specialized preparation for engineering studies with focus on mathematics and physics</p>
-                    <div class="duration">Sep 2021 - Jun 2023</div>
-                </div>
-                </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Certifications</h2>
-            <div class="certifications-grid animate-on-scroll">
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Cisco Certified Network Associate (CCNA)</h3>
-                    <p>Comprehensive networking certification covering routing, switching, and network security</p>
-                    <a href="ITN_CCNA.pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Certified Network Security Practitioner</h3>
-                    <p>The SecOps Group - Advanced network security practices and threat detection</p>
-                    <a href="LinaAbboud-CertifiedNetworkSecurityPractitioner(CNSP-MOCK-EXAM).pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-cloud"></i>
-                    <h3>AWS Concepts</h3>
-                    <p>DataCamp - Foundation in Amazon Web Services and cloud computing principles</p>
-                    <a href="awsConcepts.pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-cube"></i>
-                    <h3>Containerization & Virtualization</h3>
-                    <p>DataCamp - Docker, Kubernetes, and modern deployment strategies</p>
-                    <a href="containerization & virt concepts.pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-lock"></i>
-                    <h3>Introduction to Cybersecurity</h3>
-                    <p>Cisco - Fundamentals of cybersecurity and threat landscape</p>
-                    <a href="introCyber.pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-business-time"></i>
-                    <h3>Cyber Security for SMBs</h3>
-                    <p>EC-Council - Specialized cybersecurity for small and medium businesses</p>
-                    <a href="ecCounsil.png" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-cubes"></i>
-                    <h3>Certified Blockchain Practitioner</h3>
-                    <p>The SecOps Group - Fundamentals of blockchain technology and applications.</p>
-                    <a href="LinaAbboud-CertifiedBlockchainPractitioner(CBP-MOCK-EXAM).pdf" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-                <div class="cert-card stagger-animation">
-                    <i class="fas fa-handshake"></i>
-                    <h3>IEEE Volunteering</h3>
-                    <p>Recognizing service to the mission and members of IEEE as Webmaster.</p>
-                    <a href="ieee_certif.png" target="_blank" class="cert-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        View Certificate
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">My Projects</h2>
-            <div class="projects-grid animate-on-scroll">
-                <div class="project-card stagger-animation">
-                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Federated+Learning+IDS" alt="Federated Learning for Intrusion Detection System">
-                    <div class="project-info">
-                        <h3>Federated Learning for Intrusion Detection System</h3>
-                        <p>Designed a privacy-preserving federated learning framework using Flower and TensorFlow for network intrusion detection. Containerized system with Docker. Implemented secure client-server communication using gRPC, enhancing system scalability.</p>
-                        <div class="duration">Oct 2024 - May 2025</div>
+    <main>
+        <!-- Replaced the existing hero section with the user-provided HTML -->
+        <section id="home" class="hero">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span class="intro-text">Hi, It's</span><br>
+                        <span class="name">Lina Abboud</span>
+                    </h1>
+                    <p class="role">I'm an ICT Engineering Student</p>
+                    <p class="description">
+                        I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects and drive innovation in cybersecurity and networking domains.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/lina-aboud" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/lunaabboud" target="_blank" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:lina.abboud.ing@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span>Get in Touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <span>View My Work</span>
+                            <i class="fas fa-eye"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="project-card stagger-animation">
-                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=AWS+Cloud+IDS" alt="AWS Cloud-Based Intrusion Detection System">
-                    <div class="project-info">
-                        <h3>AWS Cloud-Based Intrusion Detection System</h3>
-                        <p>Deployed a cloud-native IDS using AWS services for real-time threat detection. Implemented automated response workflows with AWS Step Functions to contain identified threats.</p>
-                        <div class="duration">Jan 2025 - Mar 2025</div>
-                    </div>
-                </div>
-                <div class="project-card stagger-animation">
-                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Poly-Clinic+DB" alt="Poly-Clinic Database Management System">
-                    <div class="project-info">
-                        <h3>Poly-Clinic Database Management System</h3>
-                        <p>Designed and implemented an Oracle-based database for polyclinic management, handling 1K+ patient records. Developed PL/SQL procedures for appointment scheduling, billing automation, and inventory tracking. Received 17/20 for exceptional documentation and real-world applicability.</p>
-                        <div class="duration">Feb 2025</div>
-                    </div>
-                </div>
-                <div class="project-card stagger-animation">
-                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Network+Security" alt="Network Security Analysis">
-                    <div class="project-info">
-                        <h3>Network Security Analysis</h3>
-                        <p>Configured a network topology using Cisco Packet Tracer, implementing VLANs and RSTP to prevent loops. Conducted vulnerability scans with Nmap and Wireshark, identifying and mitigating potential security threats.</p>
-                        <div class="duration">Jan 2024 - May 2024</div>
-                    </div>
-                </div>
-                <div class="project-card stagger-animation">
-                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=RL+Applications" alt="Reinforcement Learning Applications">
-                    <div class="project-info">
-                        <h3>Reinforcement Learning Applications</h3>
-                        <p>Developed an autonomous Snake game AI using Q-learning with PyTorch. Compared RL algorithms (SARSA, Deep Q-Learning) for performance in dynamic environments. Explored RL applications in network optimization, focusing on adaptive routing protocols.</p>
-                        <div class="duration">Oct 2023 - Apr 2024</div>
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <!-- Placeholder for profile image; user can add their own -->
+                        <img src="https://via.placeholder.com/320" alt="Lina Abboud" class="profile-image">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">My Skills</h2>
-            <div class="skills-grid animate-on-scroll">
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-database"></i>
-                    <h3>Database Management</h3>
-                    <p>Oracle (SGBD), Advanced SQL/PLSQL, MySQL</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Data Analysis</h3>
-                    <p>Python (Pandas, NumPy), SQL</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-brain"></i>
-                    <h3>AI/ML</h3>
-                    <p>Scikit-learn, TensorFlow, Feature Engineering, Time-Series Forecasting</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Network Security</h3>
-                    <p>Cisco CCNA, Firewalls, IDS/IPS, VPNs, Wireshark, Nmap</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Cloud Computing</h3>
-                    <p>AWS (EC2, S3, Lambda), Virtualization, Containerization (Docker)</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-code"></i>
-                    <h3>Programming</h3>
-                    <p>Python, C, C++, Java, Bash</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Networking</h3>
-                    <p>TCP/IP, VLANs, STP, RSTP, Cisco Packet Tracer</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-tools"></i>
-                    <h3>Tools</h3>
-                    <p>Linux, Git, Docker, Metasploit</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-chart-pie"></i>
-                    <h3>Visualization</h3>
-                    <p>Matplotlib, Seaborn, Power BI (Basics)</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-globe"></i>
-                    <h3>Languages</h3>
-                    <p>English (Fluent), French (Fluent), Arabic (Native), German (Basic)</p>
+    
+
+ 
+
+        <section id="education" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-timeline">
+                    <div class="education-item stagger-animation">
+                        <h3>Bachelor of ICT Engineering</h3>
+                        <p class="degree">National Engineering School of Sousse (ENISo)</p>
+                        <span>September 2021 - Present</span>
+                    </div>
+                    <div class="education-item stagger-animation">
+                        <h3>Preparatory School for Engineering Studies</h3>
+                        <p class="degree">Institute of Preparatory Studies for Engineering Studies of Monastir (IPEIM)</p>
+                        <span>September 2019 - June 2021</span>
+                    </div>
+                    <div class="education-item stagger-animation">
+                        <h3>Baccalaureate in Experimental Sciences</h3>
+                        <p class="degree">Pioneer High School of Sousse</p>
+                        <span>September 2018 - June 2019</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="positions" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Experience</h2>
-            <div class="positions-list animate-on-scroll">
-                <div class="position-item stagger-animation">
-                    <h3>Media Manager</h3>
-                    <div class="role">IEEE CS Chapter</div>
-                    <div class="duration">Feb 2024 - Feb 2025</div>
-                    <ul>
-                        <li>Coordinated digital content strategies for computer science events, collaborating with technical teams.</li>
-                        <li>Analyzed engagement metrics, improving outreach efficiency by 15% through data-driven strategies.</li>
-                    </ul>
-                </div>
-                <div class="position-item stagger-animation">
-                    <h3>Media Manager</h3>
-                    <div class="role">INJEZ</div>
-                    <div class="duration">Mar 2024 - Jun 2024</div>
-                    <ul>
-                        <li>Managed secure content delivery for event websites, ensuring platform uptime and accessibility.</li>
-                        <li>Developed multimedia content to explain technical concepts, enhancing audience engagement.</li>
-                    </ul>
-                </div>
-                <div class="position-item stagger-animation">
-                    <h3>VIS-A-VIS Team Manager</h3>
-                    <div class="role">TUNED</div>
-                    <div class="duration">Jun 2024 - Oct 2024</div>
-                    <ul>
-                        <li>Led a team of 5 in event logistics, streamlining communication to meet technical deadlines.</li>
-                        <li>Resolved network connectivity issues during event setup, ensuring seamless operations.</li>
-                    </ul>
+        <section id="experience" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="education-timeline"> <!-- Reusing education-timeline for general list styling -->
+                    <div class="education-item stagger-animation">
+                        <h3>Web Developer Intern</h3>
+                        <p class="degree">Tech Solutions Inc.</p>
+                        <span>June 2023 - August 2023</span>
+                        <p>Assisted in developing and maintaining client websites using HTML, CSS, and JavaScript. Gained practical experience in responsive design and cross-browser compatibility.</p>
+                    </div>
+                    <div class="education-item stagger-animation">
+                        <h3>Research Assistant</h3>
+                        <p class="degree">University Research Lab</p>
+                        <span>January 2023 - May 2023</span>
+                        <p>Contributed to a project on data analysis using Python. Developed scripts to automate data collection and visualization processes.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Get In Touch</h2>
-            <div class="contact-content animate-on-scroll">
-                <p>Feel free to reach out for collaborations, project inquiries, or just to say hello!</p>
-                <div class="contact-form">
-                    <form class="form">
+        <section id="certifications" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications-grid">
+                    <div class="cert-card stagger-animation">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Google IT Support Professional Certificate</h3>
+                        <p>Issued by Google</p>
+                        <a href="#" target="_blank" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="cert-card stagger-animation">
+                        <i class="fas fa-code"></i>
+                        <h3>Front-End Web Development Libraries</h3>
+                        <p>Issued by freeCodeCamp</p>
+                        <a href="#" target="_blank" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="cert-card stagger-animation">
+                        <i class="fas fa-database"></i>
+                        <h3>SQL Basics for Data Science</h3>
+                        <p>Issued by DataCamp</p>
+                        <a href="#" target="_blank" class="cert-link">View Credential <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card stagger-animation">
+                        <img src="https://placehold.co/400x200/cccccc/333333?text=E-commerce" alt="E-commerce Platform Project">
+                        <div class="project-info">
+                            <h3>E-commerce Platform</h3>
+                            <p>Developed a full-stack e-commerce website using React for the frontend and Node.js with Express for the backend. Implemented user authentication, product management, and order processing.</p>
+                            <a href="#" target="_blank" class="project-link">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank" class="project-link">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card stagger-animation">
+                        <img src="https://placehold.co/400x200/cccccc/333333?text=Task+Manager" alt="Mobile Task Manager Project">
+                        <div class="project-info">
+                            <h3>Mobile Task Manager</h3>
+                            <p>Created a mobile application for task management using React Native. Features include task creation, due date reminders, and categorization.</p>
+                            <a href="#" target="_blank" class="project-link">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank" class="project-link">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card stagger-animation">
+                        <img src="https://placehold.co/400x200/cccccc/333333?text=Dashboard" alt="Data Visualization Dashboard Project">
+                        <div class="project-info">
+                            <h3>Data Visualization Dashboard</h3>
+                            <p>Designed and implemented an interactive data dashboard using D3.js to visualize complex datasets, offering insights through various charts and graphs.</p>
+                            <a href="#" target="_blank" class="project-link">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" target="_blank" class="project-link">GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       <section id="skills" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, JavaScript, React.js, Node.js</p>
+                    </div>
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-database"></i>
+                        <h3>Database Management</h3>
+                        <p>SQL, MongoDB, Firebase</p>
+                    </div>
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend Development</h3>
+                        <p>Python, Java, RESTful APIs</p>
+                    </div>
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Development</h3>
+                        <p>React Native (Basic)</p>
+                    </div>
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Networking</h3>
+                        <p>TCP/IP, Routing, Switching</p>
+                    </div>
+                    <div class="skill-item stagger-animation">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Platforms</h3>
+                        <p>AWS (Basic), Google Cloud (Basic)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="info-item stagger-animation">
+                            <i class="fas fa-envelope"></i>
+                            <span>lina.abboud@example.com</span>
+                        </div>
+                        <div class="info-item stagger-animation">
+                            <i class="fas fa-phone"></i>
+                            <span>+216 12 345 678</span>
+                        </div>
+                        <div class="info-item stagger-animation">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sousse, Tunisia</span>
+                        </div>
+                    </div>
+                    <form class="contact-form stagger-animation" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -1238,115 +1257,94 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
+                        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
-                <div class="social-links animate-on-scroll">
-                    <a href="https://linkedin.com/in/lina-aboud" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/lunaabboud" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:lina.abboud.ing@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lina Abboud. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-    </section>
-
-    <footer class="animate-on-scroll">
-        <p>&copy; 2025 Lina Abboud. All rights reserved.</p>
     </footer>
 
     <script>
-        // JavaScript for Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // JavaScript for Mobile Menu Toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            this.classList.toggle('active'); // Optional: animate the icon
-        });
-
-        // Smooth scrolling for navigation links and mobile menu auto-close
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default anchor click behavior
+                e.preventDefault();
 
-                // Get the target section's ID from the href attribute
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
 
-                if (targetElement) {
-                    // Scroll smoothly to the target section
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-
-                    // If mobile menu is active, close it after clicking a link
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                    }
+                // Close mobile menu after clicking a link
+                const nav = document.getElementById('main-nav');
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenu.classList.remove('active');
                 }
             });
         });
 
-
-        // JavaScript for Fade-in on Scroll Animation (Intersection Observer)
-        document.addEventListener('DOMContentLoaded', () => {
-            const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-            const observerOptions = {
-                root: null, /* viewport as root */
-                rootMargin: '0px',
-                threshold: 0.2 /* 20% of element visible to trigger */
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        // Optional: Stop observing once animated if you only want it to animate once
-                        // observer.unobserve(entry.target);
-                    } else {
-                        // Optional: Remove 'animated' class if you want it to re-animate on scroll back
-                        // entry.target.classList.remove('animated');
-                    }
-                });
-            }, observerOptions);
-
-            sectionsToAnimate.forEach(section => {
-                observer.observe(section);
-            });
-
-            // The LLM Feature Logic has been removed from here as per your request.
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            this.classList.toggle('active');
+            this.querySelector('.bar:nth-child(1)').classList.toggle('active');
+            this.querySelector('.bar:nth-child(2)').classList.toggle('active');
+            this.querySelector('.bar:nth-child(3)').classList.toggle('active');
+            nav.classList.toggle('active');
         });
 
-        // Form submission simulation
-        document.querySelector('.form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Add class to header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
 
+            // Animate sections on scroll
+            document.querySelectorAll('.animate-on-scroll').forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                if (sectionTop < viewportHeight * 0.75) {
+                    section.classList.add('animated');
+                }
+            });
+        });
+
+        // Contact Form Submission (Basic Example)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             const button = this.querySelector('button');
             const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            button.innerHTML = 'Sending...';
             button.disabled = true;
+            button.style.background = '#888'; /* Gray out button */
 
+            // Simulate form submission
             setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                button.innerHTML = 'Message Sent!';
                 button.style.background = '#28a745'; /* Green for success */
-
                 setTimeout(() => {
                     button.innerHTML = originalText;
                     button.disabled = false;
@@ -1356,24 +1354,21 @@
             }, 2000);
         });
 
-        // Add typing effect to hero title
-        window.addEventListener('load', function() {
-            const title = document.querySelector('.hero h1');
-            // This line might interfere with the CSS typewriter animation if not timed correctly.
-            // The CSS animation itself handles the width. Keeping it commented unless issues arise.
-            // title.style.width = 'auto';
+        // Ensure initial animation for hero content
+        // Removed old typing effect JS as the H1 structure has changed.
+        window.addEventListener('load', () => {
+            document.querySelector('.hero-text').style.animation = 'fadeInLeft 1s ease';
+            document.querySelector('.hero-image').style.animation = 'fadeInRight 1s ease';
+            // Trigger initial scroll animation for visible sections
+            document.querySelectorAll('.animate-on-scroll').forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                if (sectionTop < viewportHeight * 0.75) {
+                    section.classList.add('animated');
+                }
+            });
         });
 
-        // Parallax effect for hero section
-        // Note: This was in your original JS, but the hero section already uses CSS for a similar effect.
-        // If you want a more pronounced parallax, you might need to adjust the CSS 'background-attachment'
-        // or implement a JS-based parallax. For now, I've kept the CSS-based float animation.
-        // window.addEventListener('scroll', function() {
-        //     const hero = document.querySelector('.hero');
-        //     const scrolled = window.pageYOffset;
-        //     const parallax = scrolled * 0.5; // Adjust this value for more/less parallax
-        //     hero.style.transform = 'translateY(' + parallax + 'px)';
-        // });
     </script>
 </body>
 </html>
