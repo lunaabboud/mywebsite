@@ -934,15 +934,17 @@
             box-shadow: 0 8px 20px rgba(0, 206, 209, 0.2); /* Adjusted shadow for accent */
         }
 
-        .social-links {
-            margin-top: 2rem;
-        }
-
-         .social-links a {
-            color: var(--main-accent-color); /* Change this line */
+          /* Contact Section - Social Links */
+        .social-links a {
+            color: var(--main-accent-color); /* Changed to accent color #00CED1 */
             font-size: 2rem;
             margin: 0 1rem;
             transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--primary-color); /* You might want to adjust this hover color too, e.g., var(--primary-color) or a darker shade of the accent */
         }
 
         .social-links a:hover {
