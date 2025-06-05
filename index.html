@@ -24,16 +24,16 @@
             --white: #ffffff;
             --gradient: linear-gradient(135deg, #000000, #333333);
             --hover-gradient: linear-gradient(135deg, #333333, #666666);
-            --main-accent-color: #00CED1; /* Vibrant teal/cyan color */
+            --main-accent-color: #00CED1;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Changed to Inter for a modern look */
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
-            background-color: var(--bg-light); /* Added a light background for overall site */
+            overflow-x: hidden;
+            background-color: #0a0a0a;
         }
 
         /* Keyframe Animations */
@@ -99,21 +99,12 @@
             }
         }
 
-        @keyframes typewriter {
-            from {
-                width: 0;
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(0, 206, 209, 0.3);
             }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            0%, 50% {
-                border-color: transparent;
-            }
-            51%, 100% {
-                border-color: var(--white);
+            50% {
+                box-shadow: 0 0 50px rgba(0, 206, 209, 0.6);
             }
         }
 
@@ -122,7 +113,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
@@ -131,8 +122,8 @@
         }
 
         nav.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 206, 209, 0.3);
+            background: rgba(10, 10, 10, 0.98);
         }
 
         .nav-container {
@@ -152,7 +143,7 @@
         }
 
         .logo .accent-text {
-            color: var(--main-accent-color); /* Apply accent color to the specific span */
+            color: var(--main-accent-color);
         }
 
         .nav-links {
@@ -166,7 +157,7 @@
             text-decoration: none;
             color: var(--white);
             font-weight: 500;
-            transition: all 0.3s ease, text-shadow 0.3s ease; /* Changed to text-shadow for transition */
+            transition: all 0.3s ease, text-shadow 0.3s ease;
             position: relative;
             padding: 0.5rem 0;
         }
@@ -178,14 +169,14 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--main-accent-color); /* Accent underline on hover */
+            background: var(--main-accent-color);
             transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             transform: translateY(-2px);
-            color: var(--main-accent-color); /* Changed to accent color on hover */
-            text-shadow: 0 0 8px var(--main-accent-color), 0 0 15px var(--main-accent-color); /* Shining text effect */
+            color: var(--main-accent-color);
+            text-shadow: 0 0 8px var(--main-accent-color), 0 0 15px var(--main-accent-color);
         }
 
         .nav-links a:hover::after {
@@ -213,7 +204,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.98);
+                background: rgba(10, 10, 10, 0.98);
                 padding: 1rem 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             }
@@ -232,82 +223,114 @@
             }
         }
 
-        /* Hero Section */
+        /* Hero Section - Combined Home & About */
         .hero {
-            background: var(--gradient);
+            background: #0a0a0a;
             color: var(--white);
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 5rem; /* Space for fixed navbar */
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 2px,
-                rgba(255, 255, 255, 0.03) 2px,
-                rgba(255, 255, 255, 0.03) 4px
-            );
-            animation: float 6s ease-in-out infinite;
+            padding-top: 5rem;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
             position: relative;
             z-index: 2;
-            text-align: center; /* Center content for smaller screens */
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid var(--white);
-            width: 0;
-            animation: typewriter 2s steps(40) 1s both, blink 1s infinite;
-            display: inline-block; /* Required for typewriter effect */
+            font-weight: 700;
         }
 
-        .hero .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.5s both;
+        .hero h1 .intro-text {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--white);
+            font-weight: 400;
         }
 
-        .accent-text-highlight {
+        .hero h1 .name {
             color: var(--main-accent-color);
-            font-weight: 600; /* Make it slightly bolder to stand out */
+            font-weight: 700;
+        }
+
+        .hero .role {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            color: #cccccc;
+            font-weight: 400;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #999999;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--main-accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 206, 209, 0.4);
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
-            animation: fadeInUp 1s ease 1s both;
-            justify-content: center; /* Center buttons for smaller screens */
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            flex-wrap: wrap;
         }
 
         .btn {
             padding: 1rem 2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -317,6 +340,7 @@
             gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            font-size: 1rem;
         }
 
         .btn::before {
@@ -340,42 +364,93 @@
         }
 
         .btn-primary {
-            background: var(--white);
-            color: var(--primary-color);
+            background: var(--main-accent-color);
+            color: var(--white);
         }
 
         .btn-primary:hover {
-            background: var(--main-accent-color); /* Changed to accent color on hover */
-            color: var(--white); /* Ensure text is white on accent background */
+            background: #00b4b7;
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 206, 209, 0.2); /* Adjusted shadow for accent */
-            animation: pulse 2s infinite;
+            box-shadow: 0 15px 35px rgba(0, 206, 209, 0.4);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 2px solid var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-outline:hover {
-            background: var(--main-accent-color); /* Changed to accent color on hover */
-            color: var(--white); /* Ensure text is white on accent background */
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--main-accent-color);
+            color: var(--main-accent-color);
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 206, 209, 0.2); /* Adjusted shadow for accent */
         }
 
-        /* Animated Background Elements */
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        .profile-circle {
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
-            top: 20%;
+            background: radial-gradient(circle at 30% 30%, var(--main-accent-color), #005f61);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .profile-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 206, 209, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
             right: 10%;
-            animation: float 8s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 4s;
         }
 
         /* Section Styles */
@@ -401,7 +476,7 @@
             color: var(--primary-color);
             position: relative;
             animation: fadeInUp 1s ease;
-            transition: transform 0.3s ease; /* Added for hover effect */
+            transition: transform 0.3s ease;
         }
 
         .section-title::after {
@@ -417,7 +492,7 @@
         }
 
         .section-title:hover {
-            transform: scale(1.02); /* Subtle scale on hover */
+            transform: scale(1.02);
         }
 
         /* Scroll animations */
@@ -444,105 +519,11 @@
         .stagger-animation:nth-child(9) { animation-delay: 0.9s; }
         .stagger-animation:nth-child(10) { animation-delay: 1.0s; }
 
-
-        /* About Section Styles */
-        .about-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 4rem;
-            align-items: center;
-            justify-content: center; /* Center content for smaller screens */
-        }
-
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr; /* Stack columns on small screens */
-                text-align: center;
-            }
-        }
-
-        .about-image-container { /* New container for the image */
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInLeft 1s ease;
-        }
-
-        .profile-image { /* Styling for your background-less image */
-            width: 280px;
-            height: 350px;
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            border-radius: 15px; /* Rounded corners for the image */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
-            display: block; /* Remove extra space below image */
-        }
-
-        .profile-image:hover {
-            transform: scale(1.03) rotate(1deg); /* Slight scale and rotation on hover */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 20px var(--main-accent-color); /* Added shining effect */
-        }
-
-        .about-text {
-            animation: fadeInRight 1s ease;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            animation: fadeInUp 1s ease;
-        }
-
-        .download-cv {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-cv::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transition: left 0.5s;
-        }
-
-        .download-cv:hover::before {
-            left: 100%;
-        }
-
-        .download-cv:hover {
-            background: var(--main-accent-color); /* Changed to accent color on hover */
-            color: var(--white); /* Ensure text is white on accent background */
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 206, 209, 0.3); /* Adjusted shadow for accent */
-        }
-
         /* Education Section Enhanced */
         .education-timeline {
             position: relative;
             padding-left: 2rem;
-            max-width: 800px; /* Constrain width for better readability */
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -566,15 +547,15 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+            transition: all 0.3s ease, box-shadow 0.3s ease;
             transform: translateX(0);
-            border-left: 5px solid transparent; /* Added for visual flair */
+            border-left: 5px solid transparent;
         }
 
         .education-item:hover {
             transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4); /* Shining effect with accent color */
-            border-left-color: var(--primary-color); /* Highlight on hover */
+            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4);
+            border-left-color: var(--primary-color);
         }
 
         .education-item::before {
@@ -611,7 +592,7 @@
         /* Certifications Enhanced */
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better responsiveness */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
@@ -622,7 +603,7 @@
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+            transition: all 0.4s ease, box-shadow 0.3s ease;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -638,7 +619,7 @@
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             transform: scaleX(0);
-            transform-origin: left; /* Animation starts from left */
+            transform-origin: left;
             transition: transform 0.3s ease;
         }
 
@@ -648,7 +629,7 @@
 
         .cert-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 206, 209, 0.4); /* Shining effect with accent color */
+            box-shadow: 0 20px 40px rgba(0, 206, 209, 0.4);
             border-color: var(--primary-color);
         }
 
@@ -661,7 +642,7 @@
 
         .cert-card:hover i {
             color: var(--accent-color);
-            transform: rotateY(180deg); /* Flip icon on hover */
+            transform: rotateY(180deg);
         }
 
         .cert-link {
@@ -694,13 +675,13 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transition: all 0.4s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+            transition: all 0.4s ease, box-shadow 0.3s ease;
             position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 25px var(--main-accent-color); /* Shining effect with accent color */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 25px var(--main-accent-color);
         }
 
         .project-card img {
@@ -744,39 +725,6 @@
             transform: translateX(5px);
         }
 
-        /* LLM Feature Button - REMOVED, BUT KEEPING STYLES COMMENTED FOR REFERENCE */
-        /*
-        .btn-llm-feature {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.7rem 1.2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .btn-llm-feature:hover {
-            background: var(--main-accent-color);
-            box-shadow: 0 5px 15px rgba(0, 206, 209, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-llm-feature:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-            box-shadow: none;
-            transform: none;
-        }
-        */
-
-
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -792,17 +740,17 @@
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
-            transition: all 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+            transition: all 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skill-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 206, 209, 0.4); /* Shining effect with accent color */
+            box-shadow: 0 8px 25px rgba(0, 206, 209, 0.4);
         }
 
         .skill-card i {
             font-size: 2.5rem;
-            color: var(--main-accent-color); /* Changed to accent color */
+            color: var(--main-accent-color);
             margin-bottom: 0.5rem;
             transition: transform 0.3s ease;
         }
@@ -813,7 +761,7 @@
 
         .skill-card h3 {
             font-size: 1.1rem;
-            color: var(--main-accent-color); /* Changed to accent color */
+            color: var(--main-accent-color);
         }
 
         /* Experience/Positions Section */
@@ -828,14 +776,14 @@
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
-            transition: all 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
-            border-right: 5px solid transparent; /* Added for visual flair */
+            transition: all 0.3s ease, box-shadow 0.3s ease;
+            border-right: 5px solid transparent;
         }
 
         .position-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4); /* Shining effect with accent color */
-            border-right-color: var(--primary-color); /* Highlight on hover */
+            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.4);
+            border-right-color: var(--primary-color);
         }
 
         .position-item h3 {
@@ -935,26 +883,26 @@
         }
 
         .contact-form button:hover {
-            background: var(--main-accent-color); /* Changed to accent color on hover */
-            color: var(--white); /* Ensure text is white on accent background */
+            background: var(--main-accent-color);
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 206, 209, 0.2); /* Adjusted shadow for accent */
+            box-shadow: 0 8px 20px rgba(0, 206, 209, 0.2);
         }
 
-        .social-links {
+        .contact-social-links {
             margin-top: 2rem;
         }
 
-        .social-links a {
-            color: var(--main-accent-color); /* Changed to accent color #00CED1 */
+        .contact-social-links a {
+            color: var(--main-accent-color);
             font-size: 2rem;
             margin: 0 1rem;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        .social-links a:hover {
+        .contact-social-links a:hover {
             transform: translateY(-5px) scale(1.1);
-            color: var(--primary-color); /* You might want to adjust this hover color too, e.g., var(--primary-color) or a darker shade of the accent */
+            color: var(--primary-color);
         }
 
         /* Footer */
@@ -974,7 +922,6 @@
             <div class="logo">Lina <span class="accent-text">Abboud</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -989,65 +936,74 @@
     </nav>
 
     <section id="home" class="hero">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
         <div class="hero-content">
-            <h1>Lina <span class="accent-text">Abboud</span></h1>
-            <p class="tagline">ICT Engineering Student specializing in Telecommunications | Passionate about <span class="accent-text-highlight">Cybersecurity</span>, <span class="accent-text-highlight">Networking</span>, and <span class="accent-text-highlight">Cloud Computing</span></p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i>
-                    Get In Touch
-                </a>
-                <a href="#projects" class="btn btn-outline">
-                    <i class="fas fa-code"></i>
-                    View My Work
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">About Me</h2>
-            <div class="about-content animate-on-scroll">
-                <div class="about-image-container">
-                    <img src="blue.jpg"
-                         alt="Lina Abboud Professional Portrait"
-                         class="profile-image"
-                         onerror="this.onerror=null;this.src='https://placehold.co/280x350/E0E7FF/000000?text=Image+Not+Found';">
+            <div class="hero-text">
+                <h1>
+                    <span class="intro-text">Hi, It's</span><br>
+                    <span class="name">Lina Abboud</span>
+                </h1>
+                <p class="role">I'm an ICT Engineering Student</p>
+                <p class="description">
+                    I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects and drive innovation in cybersecurity and networking domains.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/lina-aboud" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/lunaabboud" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:lina.abboud.ing@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
-                <div class="about-text">
-                    <p>I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects.</p>
-                    <p>With a strong foundation in both theoretical knowledge and practical application, I'm passionate about leveraging technology to solve complex problems and drive innovation in the telecommunications and cybersecurity domains.</p>
-                    <a href="Lina_abboud_resume.pdf" target="_blank" class="download-cv">
-                        <i class="fas fa-download"></i>
-                        Download CV
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Hire Me</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <span>View My Work</span>
+                        <i class="fas fa-eye"></i>
                     </a>
                 </div>
             </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <!-- Placeholder for profile image; user can add their own -->
+                    <img src="https://via.placeholder.com/320" alt="Lina Abboud" class="profile-image">
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Continue with other sections as defined in index1.txt -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Education</h2>
-            <div class="education-timeline animate-on-scroll">
-                <div class="education-item stagger-animation">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                <div class="education-item animate-on-scroll stagger-animation">
                     <h3>National Engineering School of Tunis (ENIT)</h3>
-                    <div class="degree">ICT Engineering (AI & Data Science)</div>
+                    <p class="degree">ICT Engineering (AI & Data Science)</p>
                     <p>Relevant coursework: Machine Learning, Database Systems</p>
-                    <div class="duration">Sep 2023 - Present</div>
+                    <p>Sep 2023 - Present</p>
                 </div>
-                <div class="education-item stagger-animation">
+                <div class="education-item animate-on-scroll stagger-animation">
                     <h3>Higher School of Science and Technology of Hammam Sousse</h3>
-                    <div class="degree">Preparatory Diploma in Engineering</div>
+                    <p class="degree">Preparatory Diploma in Engineering</p>
                     <p>Specialized preparation for engineering studies with focus on mathematics and physics</p>
-                    <div class="duration">Sep 2021 - Jun 2023</div>
+                    <p>Sep 2021 - Jun 2023</p>
                 </div>
-                </div>
+            </div>
         </div>
     </section>
 
-    <section id="certifications" class="section">
+      <section id="certifications" class="section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Certifications</h2>
             <div class="certifications-grid animate-on-scroll">
@@ -1300,15 +1256,13 @@
             </div>
         </div>
     </section>
-
-    <footer class="animate-on-scroll">
+  <footer class="animate-on-scroll">
         <p>&copy; 2025 Lina Abboud. All rights reserved.</p>
     </footer>
-
     <script>
-        // JavaScript for Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -1316,110 +1270,24 @@
             }
         });
 
-        // JavaScript for Mobile Menu Toggle
+        // Mobile Menu Toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', function() {
+        mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            this.classList.toggle('active'); // Optional: animate the icon
         });
 
-        // Smooth scrolling for navigation links and mobile menu auto-close
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default anchor click behavior
-
-                // Get the target section's ID from the href attribute
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    // Scroll smoothly to the target section
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-
-                    // If mobile menu is active, close it after clicking a link
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                    }
+        // Scroll Animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
                 }
             });
-        });
+        }, { threshold: 0.2 });
 
-
-        // JavaScript for Fade-in on Scroll Animation (Intersection Observer)
-        document.addEventListener('DOMContentLoaded', () => {
-            const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-            const observerOptions = {
-                root: null, /* viewport as root */
-                rootMargin: '0px',
-                threshold: 0.2 /* 20% of element visible to trigger */
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        // Optional: Stop observing once animated if you only want it to animate once
-                        // observer.unobserve(entry.target);
-                    } else {
-                        // Optional: Remove 'animated' class if you want it to re-animate on scroll back
-                        // entry.target.classList.remove('animated');
-                    }
-                });
-            }, observerOptions);
-
-            sectionsToAnimate.forEach(section => {
-                observer.observe(section);
-            });
-
-            // The LLM Feature Logic has been removed from here as per your request.
-        });
-
-        // Form submission simulation
-        document.querySelector('.form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const button = this.querySelector('button');
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            button.disabled = true;
-
-            setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                button.style.background = '#28a745'; /* Green for success */
-
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                    button.style.background = ''; /* Reset background */
-                    this.reset(); /* Clear form fields */
-                }, 2000);
-            }, 2000);
-        });
-
-        // Add typing effect to hero title
-        window.addEventListener('load', function() {
-            const title = document.querySelector('.hero h1');
-            // This line might interfere with the CSS typewriter animation if not timed correctly.
-            // The CSS animation itself handles the width. Keeping it commented unless issues arise.
-            // title.style.width = 'auto';
-        });
-
-        // Parallax effect for hero section
-        // Note: This was in your original JS, but the hero section already uses CSS for a similar effect.
-        // If you want a more pronounced parallax, you might need to adjust the CSS 'background-attachment'
-        // or implement a JS-based parallax. For now, I've kept the CSS-based float animation.
-        // window.addEventListener('scroll', function() {
-        //     const hero = document.querySelector('.hero');
-        //     const scrolled = window.pageYOffset;
-        //     const parallax = scrolled * 0.5; // Adjust this value for more/less parallax
-        //     hero.style.transform = 'translateY(' + parallax + 'px)';
-        // });
+        animateOnScrollElements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
