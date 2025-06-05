@@ -290,6 +290,11 @@
             animation: fadeInUp 1s ease 0.5s both;
         }
 
+        .accent-text-highlight {
+            color: var(--main-accent-color);
+            font-weight: 600; /* Make it slightly bolder to stand out */
+        }
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -739,7 +744,8 @@
             transform: translateX(5px);
         }
 
-        /* LLM Feature Button */
+        /* LLM Feature Button - REMOVED, BUT KEEPING STYLES COMMENTED FOR REFERENCE */
+        /*
         .btn-llm-feature {
             background: var(--primary-color);
             color: var(--white);
@@ -753,7 +759,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1rem; /* Space from project description */
+            margin-top: 1rem;
         }
 
         .btn-llm-feature:hover {
@@ -768,6 +774,7 @@
             box-shadow: none;
             transform: none;
         }
+        */
 
 
         /* Skills Section */
@@ -795,7 +802,7 @@
 
         .skill-card i {
             font-size: 2.5rem;
-            color: var(--primary-color);
+            color: var(--main-accent-color); /* Changed to accent color */
             margin-bottom: 0.5rem;
             transition: transform 0.3s ease;
         }
@@ -806,7 +813,7 @@
 
         .skill-card h3 {
             font-size: 1.1rem;
-            color: var(--primary-color);
+            color: var(--main-accent-color); /* Changed to accent color */
         }
 
         /* Experience/Positions Section */
@@ -934,7 +941,10 @@
             box-shadow: 0 8px 20px rgba(0, 206, 209, 0.2); /* Adjusted shadow for accent */
         }
 
-          /* Contact Section - Social Links */
+        .social-links {
+            margin-top: 2rem;
+        }
+
         .social-links a {
             color: var(--main-accent-color); /* Changed to accent color #00CED1 */
             font-size: 2rem;
@@ -945,11 +955,6 @@
         .social-links a:hover {
             transform: translateY(-5px) scale(1.1);
             color: var(--primary-color); /* You might want to adjust this hover color too, e.g., var(--primary-color) or a darker shade of the accent */
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-            color: var(--primary-color); /* Also consider changing this hover color for visual feedback */
         }
 
         /* Footer */
@@ -1005,15 +1010,15 @@
             <h2 class="section-title animate-on-scroll">About Me</h2>
             <div class="about-content animate-on-scroll">
                 <div class="about-image-container">
-                    <img src="blue.jpg"
+                    <img src="https://placehold.co/280x350/E0E7FF/000000?text=Your+Image+Here"
                          alt="Lina Abboud Professional Portrait"
                          class="profile-image"
                          onerror="this.onerror=null;this.src='https://placehold.co/280x350/E0E7FF/000000?text=Image+Not+Found';">
                 </div>
-               <div class="about-text">
+                <div class="about-text">
                     <p>I am an ICT Engineering student at ENIT with a focus on Telecommunications. My expertise includes network security, cloud computing, and programming. I am seeking opportunities to apply my skills in real-world projects.</p>
                     <p>With a strong foundation in both theoretical knowledge and practical application, I'm passionate about leveraging technology to solve complex problems and drive innovation in the telecommunications and cybersecurity domains.</p>
-                    <a href="CV_FOR_SECURITY.pdf" target="_blank" class="download-cv">
+                    <a href="uploaded:Abboud Lina CV.pdf" target="_blank" class="download-cv">
                         <i class="fas fa-download"></i>
                         Download CV
                     </a>
@@ -1054,7 +1059,6 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your CCNA PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-shield-alt"></i>
@@ -1064,7 +1068,6 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your CNSP PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-cloud"></i>
@@ -1074,7 +1077,6 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your AWS Concepts PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-cube"></i>
@@ -1084,17 +1086,15 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your Containerization PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-lock"></i>
                     <h3>Introduction to Cybersecurity</h3>
                     <p>Cisco - Fundamentals of cybersecurity and threat landscape</p>
-                    <a href="introCyber.pdf">
+                    <a href="introCyber.pdf" target="_blank" class="cert-link">
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your Intro to Cybersecurity PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-business-time"></i>
@@ -1104,7 +1104,6 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your SMB Cybersecurity Image -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-cubes"></i>
@@ -1114,7 +1113,6 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your Blockchain PDF -->
                 </div>
                 <div class="cert-card stagger-animation">
                     <i class="fas fa-handshake"></i>
@@ -1124,13 +1122,12 @@
                         <i class="fas fa-external-link-alt"></i>
                         View Certificate
                     </a>
-                    <!-- Replace the above placeholder URL with the actual hosted URL of your IEEE Volunteering Image -->
                 </div>
             </div>
         </div>
     </section>
 
-   <section id="projects" class="section">
+    <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">My Projects</h2>
             <div class="projects-grid animate-on-scroll">
@@ -1183,6 +1180,21 @@
             <h2 class="section-title animate-on-scroll">My Skills</h2>
             <div class="skills-grid animate-on-scroll">
                 <div class="skill-card stagger-animation">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Management</h3>
+                    <p>Oracle (SGBD), Advanced SQL/PLSQL, MySQL</p>
+                </div>
+                <div class="skill-card stagger-animation">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Analysis</h3>
+                    <p>Python (Pandas, NumPy), SQL</p>
+                </div>
+                <div class="skill-card stagger-animation">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI/ML</h3>
+                    <p>Scikit-learn, TensorFlow, Feature Engineering, Time-Series Forecasting</p>
+                </div>
+                <div class="skill-card stagger-animation">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Network Security</h3>
                     <p>Cisco CCNA, Firewalls, IDS/IPS, VPNs, Wireshark, Nmap</p>
@@ -1210,22 +1222,7 @@
                 <div class="skill-card stagger-animation">
                     <i class="fas fa-chart-pie"></i>
                     <h3>Visualization</h3>
-                    <p>Matplotlib, Seaborn</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-database"></i>
-                    <h3>Database Management</h3>
-                    <p>Oracle (SGBD), Advanced SQL/PLSQL, MySQL</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Data Analysis</h3>
-                    <p>Python (Pandas, NumPy), SQL</p>
-                </div>
-                <div class="skill-card stagger-animation">
-                    <i class="fas fa-brain"></i>
-                    <h3>AI/ML</h3>
-                    <p>Scikit-learn, TensorFlow, Feature Engineering, Time-Series Forecasting</p>
+                    <p>Matplotlib, Seaborn, Power BI (Basics)</p>
                 </div>
                 <div class="skill-card stagger-animation">
                     <i class="fas fa-globe"></i>
@@ -1246,6 +1243,7 @@
                     <div class="duration">Feb 2024 - Feb 2025</div>
                     <ul>
                         <li>Coordinated digital content strategies for computer science events, collaborating with technical teams.</li>
+                        <li>Analyzed engagement metrics, improving outreach efficiency by 15% through data-driven strategies.</li>
                     </ul>
                 </div>
                 <div class="position-item stagger-animation">
@@ -1327,6 +1325,31 @@
             this.classList.toggle('active'); // Optional: animate the icon
         });
 
+        // Smooth scrolling for navigation links and mobile menu auto-close
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                // Get the target section's ID from the href attribute
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Scroll smoothly to the target section
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // If mobile menu is active, close it after clicking a link
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+
         // JavaScript for Fade-in on Scroll Animation (Intersection Observer)
         document.addEventListener('DOMContentLoaded', () => {
             const sectionsToAnimate = document.querySelectorAll('.animate-on-scroll');
@@ -1354,67 +1377,10 @@
                 observer.observe(section);
             });
 
-            // LLM Feature Logic
-            const llmButtons = document.querySelectorAll('.btn-llm-feature');
-            llmButtons.forEach(button => {
-                let isExpanded = false;
-                let expandedText = ''; // To store the generated text
-
-                button.addEventListener('click', async () => {
-                    const projectInfoDiv = button.closest('.project-info');
-                    const projectDescriptionP = projectInfoDiv.querySelector('p');
-                    const originalText = projectDescriptionP.dataset.originalText;
-
-                    if (!isExpanded) {
-                        // Expand the text
-                        button.disabled = true;
-                        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-
-                        try {
-                            const prompt = `Elaborate on the following project description, adding more technical details and impact, making it sound professional and engaging: "${originalText}"`;
-                            let chatHistory = [];
-                            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                            const payload = { contents: chatHistory };
-                            const apiKey = ""; // Leave as-is, Canvas will provide it
-                            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                            const response = await fetch(apiUrl, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(payload)
-                            });
-
-                            const result = await response.json();
-                            if (result.candidates && result.candidates.length > 0 &&
-                                result.candidates[0].content && result.candidates[0].content.parts &&
-                                result.candidates[0].content.parts.length > 0) {
-                                expandedText = result.candidates[0].content.parts[0].text;
-                                projectDescriptionP.innerHTML = expandedText;
-                                isExpanded = true;
-                                button.innerHTML = '<i class="fas fa-compress-alt"></i> ✨ Show Less';
-                            } else {
-                                console.error('Gemini API response structure unexpected:', result);
-                                projectDescriptionP.innerHTML = originalText + '<br><span style="color: red;">Error: Could not elaborate.</span>';
-                                button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Try Again';
-                            }
-                        } catch (error) {
-                            console.error('Error calling Gemini API:', error);
-                            projectDescriptionP.innerHTML = originalText + '<br><span style="color: red;">Error: API call failed.</span>';
-                            button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Try Again';
-                        } finally {
-                            button.disabled = false;
-                        }
-                    } else {
-                        // Revert to original text
-                        projectDescriptionP.innerHTML = originalText;
-                        isExpanded = false;
-                        button.innerHTML = '<i class="fas fa-magic"></i> ✨ Get More Details';
-                    }
-                });
-            });
+            // The LLM Feature Logic has been removed from here as per your request.
         });
 
-        // Form submission simulation (as per your original file)
+        // Form submission simulation
         document.querySelector('.form').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -1436,9 +1402,7 @@
             }, 2000);
         });
 
-        // Add typing effect to hero title (as per your original file)
-        // Note: The typing effect is primarily handled by CSS keyframes.
-        // This JS ensures the width is auto after the animation.
+        // Add typing effect to hero title
         window.addEventListener('load', function() {
             const title = document.querySelector('.hero h1');
             // This line might interfere with the CSS typewriter animation if not timed correctly.
@@ -1446,7 +1410,7 @@
             // title.style.width = 'auto';
         });
 
-        // Parallax effect for hero section (as per your original file)
+        // Parallax effect for hero section
         // Note: This was in your original JS, but the hero section already uses CSS for a similar effect.
         // If you want a more pronounced parallax, you might need to adjust the CSS 'background-attachment'
         // or implement a JS-based parallax. For now, I've kept the CSS-based float animation.
