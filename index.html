@@ -658,9 +658,12 @@
             text-align: left;
             opacity: 0;
             transform: translateY(20px);
+
+            /* Corrected timeline item layout */
+            width: calc(50% - 40px); /* Half width minus margin from center line */
         }
 
-        .timeline-item::before {
+        .timeline-item::before { /* The circle on the line */
             content: '';
             position: absolute;
             width: 15px;
@@ -673,43 +676,34 @@
         }
 
         .timeline-item.left {
-            left: -webkit-calc(50% - 40px); /* For Safari */
-            left: calc(50% - 40px);
-            margin-right: 40px; /* Space from line */
-            text-align: right;
+            float: left; /* Float to the left */
+            margin-right: 40px; /* Space from the central line */
+            text-align: right; /* Text aligns to the right */
         }
 
         .timeline-item.left::before {
-            right: -8px;
+            right: -28px; /* Position the circle to the right of the item, aligning with the line */
+            left: auto; /* Ensure no conflict with left */
         }
 
         .timeline-item.right {
-            left: calc(50% + 40px); /* Adjust to the right of the line */
-            margin-left: 40px; /* Space from line */
-            text-align: left;
+            float: right; /* Float to the right */
+            margin-left: 40px; /* Space from the central line */
+            text-align: left; /* Text aligns to the left */
         }
 
         .timeline-item.right::before {
-            left: -8px;
+            left: -28px; /* Position the circle to the left of the item, aligning with the line */
+            right: auto; /* Ensure no conflict with right */
         }
 
-        .timeline-item h3 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+        /* Clearfix for the timeline container */
+        .education-timeline::after, .experience-timeline::after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
-        .timeline-item .period {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .timeline-item p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
         
         /* Projects Section */
         .project-grid {
@@ -1000,7 +994,8 @@
 
      
 
-     <!-- Education Section -->
+    
+        <!-- Education Section -->
         <section id="education" class="section animate-on-scroll">
             <div class="container">
                 <h2 class="section-title">Education</h2>
@@ -1026,7 +1021,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Certifications Section -->
         <section id="certifications" class="section animate-on-scroll">
             <div class="container">
