@@ -718,6 +718,53 @@
                 grid-template-columns: 1fr;
             }
         }
+/* EXTRACURRICULAR ACTIVITIES */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.activity-card {
+    display: flex;
+    gap: 18px;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #e6e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.activity-card i {
+    font-size: 30px;
+    color: #2563eb;
+    margin-top: 4px;
+}
+
+.activity-card h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.activity-card span {
+    display: block;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.activity-card p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.activity-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(37,99,235,0.15);
+}
+
+        
         
         @media (max-width: 768px) {
             .nav-links {
@@ -1115,6 +1162,56 @@
     </div>
 </section>
 
+    <!-- EXTRACURRICULAR ACTIVITIES -->
+<section id="activities" class="section alt-bg">
+    <div class="container">
+        <h2 class="section-title">Extracurricular Activities</h2>
+
+        <div class="activities-grid">
+
+            <div class="activity-card">
+                <i class="fas fa-award"></i>
+                <div>
+                    <h3>Selected Mentee – ELLE’IT Program</h3>
+                    <span>Sofrecom (Orange Group) · 2025</span>
+                    <p>
+                        Selected to represent ENIT among a national cohort of
+                        20 female engineering students. Participating in a
+                        10-month mentorship program focused on IT, cybersecurity,
+                        cloud, and leadership development.
+                    </p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <i class="fas fa-laptop-code"></i>
+                <div>
+                    <h3>Webmaster</h3>
+                    <span>IEEE Computer Society · 2023–2025</span>
+                    <p>
+                        Managed technical operations, coordinated task flows
+                        across teams, and contributed to organizing workshops
+                        and technical events.
+                    </p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h3>Team Leader – VIS-À-VIS</h3>
+                    <span>TUNED · 2024</span>
+                    <p>
+                        Led a technical team, supervised planning and execution,
+                        and managed workloads under time-sensitive constraints.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 <!-- CONTACT -->
 <section id="contact" class="section">
@@ -1198,6 +1295,7 @@
 
 </body>
 </html>
+
 
 
 
