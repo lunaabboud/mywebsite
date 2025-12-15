@@ -411,49 +411,91 @@
             font-size: 0.95rem;
         }
         
-        /* Skills & Certifications Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .skill-item {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            box-shadow: var(--card-shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,206,209,0.1);
-        }
-        
-        .skill-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-            border-color: var(--accent-color);
-        }
-        
-        .skill-item i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        .skill-item h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--text-dark);
-        }
-        
-        .skill-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+        /* Shared */
+.alt-bg {
+    background: #f8f9fc;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* CERTIFICATIONS */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 1px solid #e6e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card i {
+    font-size: 26px;
+    color: #2563eb;
+}
+
+.cert-card h3 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.cert-card span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* SKILLS */
+.skills-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.skill-box {
+    background: linear-gradient(145deg, #ffffff, #f4f6ff);
+    border-radius: 14px;
+    padding: 22px;
+    border: 1px solid #e6e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-box i {
+    font-size: 28px;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.skill-box h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.skill-box p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+.skill-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(37,99,235,0.15);
+}
         
         /* Projects Grid */
         .project-grid {
@@ -798,103 +840,130 @@
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications" class="section">
-    <div class="skill-item">
-    <i class="fas fa-shield-alt"></i>
-    <h3>Pre Security</h3>
-    <p>TryHackMe</p>
-</div>
+<section id="certifications" class="section alt-bg">
+    <div class="container">
+        <h2 class="section-title">Certifications</h2>
 
-<div class="skill-item">
-    <i class="fas fa-bug"></i>
-    <h3>Cyber Security 101</h3>
-    <p>TryHackMe</p>
-</div>
+        <div class="cert-grid">
 
-<div class="skill-item">
-    <i class="fas fa-user-secret"></i>
-    <h3>Jr Penetration Tester</h3>
-    <p>TryHackMe (In Progress)</p>
-</div>
+            <div class="cert-card">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h3>Pre Security</h3>
+                    <span>TryHackMe</span>
+                </div>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-code"></i>
-    <h3>Web Fundamentals</h3>
-    <p>TryHackMe (In Progress)</p>
-</div>
+            <div class="cert-card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>Cyber Security 101</h3>
+                    <span>TryHackMe</span>
+                </div>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-robot"></i>
-    <h3>Rapid Application Development with LLMs</h3>
-    <p>NVIDIA</p>
-</div>
+            <div class="cert-card">
+                <i class="fas fa-user-secret"></i>
+                <div>
+                    <h3>Jr Penetration Tester</h3>
+                    <span>TryHackMe · In Progress</span>
+                </div>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-brain"></i>
-    <h3>Fundamentals of Deep Learning</h3>
-    <p>NVIDIA</p>
-</div>
+            <div class="cert-card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>Web Fundamentals</h3>
+                    <span>TryHackMe · In Progress</span>
+                </div>
+            </div>
 
-<div class="skill-item">
-    <i class="fab fa-linux"></i>
-    <h3>Linux & Unix Systems</h3>
-    <p>Udemy</p>
-</div>
+            <div class="cert-card">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h3>Rapid App Dev with LLMs</h3>
+                    <span>NVIDIA</span>
+                </div>
+            </div>
 
+            <div class="cert-card">
+                <i class="fas fa-brain"></i>
+                <div>
+                    <h3>Fundamentals of Deep Learning</h3>
+                    <span>NVIDIA</span>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <i class="fab fa-linux"></i>
+                <div>
+                    <h3>Linux & Unix Systems</h3>
+                    <span>Udemy</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-   <div class="skill-item">
-    <i class="fas fa-lock"></i>
-    <h3>Cybersecurity</h3>
-    <p>
-        IDS/IPS, Firewalls, VPNs, Threat Intelligence, Malware Detection, 
-        Network Traffic Analysis, Security Compliance
-    </p>
-</div>
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
 
-<div class="skill-item">
-    <i class="fas fa-cloud"></i>
-    <h3>Cloud & Edge</h3>
-    <p>
-        AWS (EC2, Lambda, VPC), Docker, Elastic Stack (Elasticsearch, Kibana),
-        Cloud-Native IDS
-    </p>
-</div>
+        <div class="skills-grid-modern">
 
-<div class="skill-item">
-    <i class="fas fa-brain"></i>
-    <h3>AI & Machine Learning</h3>
-    <p>
-        Federated Learning, GANs, Differential Privacy,
-        Anomaly Detection, Reinforcement Learning
-    </p>
-</div>
+            <div class="skill-box">
+                <i class="fas fa-lock"></i>
+                <h3>Cybersecurity</h3>
+                <p>
+                    IDS/IPS, Firewalls, VPNs, Threat Intelligence,<br>
+                    Malware Detection, Traffic Analysis, Compliance
+                </p>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-network-wired"></i>
-    <h3>Networking & Telecom</h3>
-    <p>
-        TCP/IP, VLANs, OSPF, 5G Security,
-        CSMA, TDMA, FDMA
-    </p>
-</div>
+            <div class="skill-box">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud & Edge</h3>
+                <p>
+                    AWS (EC2, Lambda, VPC), Docker,<br>
+                    Elastic Stack, Cloud-Native IDS
+                </p>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-code"></i>
-    <h3>Programming</h3>
-    <p>Python, C, C++, Java, Bash</p>
-</div>
+            <div class="skill-box">
+                <i class="fas fa-brain"></i>
+                <h3>AI & Machine Learning</h3>
+                <p>
+                    Federated Learning, GANs,<br>
+                    Differential Privacy, RL, Anomaly Detection
+                </p>
+            </div>
 
-<div class="skill-item">
-    <i class="fas fa-tools"></i>
-    <h3>Tools</h3>
-    <p>
-        Linux, Git, Docker, Metasploit, Oracle, MATLAB, LaTeX
-    </p>
-</div>
+            <div class="skill-box">
+                <i class="fas fa-network-wired"></i>
+                <h3>Networking & Telecom</h3>
+                <p>
+                    TCP/IP, VLANs, OSPF, 5G Security,<br>
+                    CSMA, TDMA, FDMA
+                </p>
+            </div>
 
+            <div class="skill-box">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>Python, C, C++, Java, Bash</p>
+            </div>
+
+            <div class="skill-box">
+                <i class="fas fa-tools"></i>
+                <h3>Tools</h3>
+                <p>Linux, Git, Docker, Metasploit,<br>Oracle, MATLAB, LaTeX</p>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <!-- PROJECTS -->
@@ -1090,5 +1159,6 @@
 
 </body>
 </html>
+
 
 
